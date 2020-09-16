@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.CustomUser;
+import com.example.demo.dto.LoginRequestDto;
 import com.example.demo.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class AuthService {
         return user;
     }
 
-    public CustomUser singIn(CustomUser user){
-        return userRepository.findByUserName(user.getUserName());
+    public CustomUser singIn(LoginRequestDto loginRequestDto){
+        return userRepository.findByUserName(loginRequestDto.getUserName());
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.CustomUser;
+import com.example.demo.dto.LoginRequestDto;
 import com.example.demo.service.AuthService;
 import com.example.demo.service.UserService;
 import lombok.AllArgsConstructor;
@@ -18,12 +19,12 @@ public class AuthController {
     private final UserService userService;
     private final AuthService authService;
 
-    @PostMapping("singUp")
+    @PostMapping("signUp")
     public CustomUser singUp(@RequestBody @Valid CustomUser user){
         return authService.addUser(user);
     }
-    @PostMapping("singIn")
-    public CustomUser singIn(@RequestBody @Valid CustomUser user){
-        return authService.singIn(user);
+    @PostMapping("signIn")
+    public CustomUser singIn(@RequestBody @Valid LoginRequestDto loginRequestDto){
+        return authService.singIn(loginRequestDto);
     }
 }
